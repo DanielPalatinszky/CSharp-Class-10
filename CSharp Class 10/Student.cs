@@ -102,14 +102,15 @@ namespace CSharp_Class_10
     {
         // Továbbra is adhatunk meg saját logikát a getternek és setternek, azonban figyeljünk arra, hogy ha akár a gettert, akár a settert saját logikával akarjuk megvalósítani, akkor a másikat is kötelesek vagyunk saját logikával megvalósítani
         // Azaz például ha saját settert írunk, akkor saját gettert is kell írnunk, nem fog létrejönni egy automatikusan generált getter (a fordító is jelzi ezt)
+        // Továbbá egy adattagot is létre kell hoznunk onnantól, hogy megvalósítjuk
+        private string name;
         public string Name
         {
-            get { return Name; }
+            get { return name; }
 
             set
             {
-                var name = value;
-                Name = name + Name.Skip(1);
+                name = value + name.Skip(1);
             }
         }
     }
